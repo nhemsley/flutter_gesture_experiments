@@ -15,8 +15,6 @@ class InteractionHistory {
     _positions = new List<Interaction>();
   }
 
-  DragGestureRecognizer a;
-
   void addPosition(Offset position) {
     Interaction interaction = new Interaction(position);
     _positions.add(interaction);

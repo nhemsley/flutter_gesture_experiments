@@ -20,7 +20,9 @@ class InteractionConsumer {
     _recognizer.onStart = (position) => this.onStart(position);
   }
 
-  //TODO: heuristics to guess which finger is starting
+  /// onStart is the first method call from the flutter runtime when a finger is pressed down
+  /// @returns the [Drag drag] that is associated with this interaction. The flutter runtime
+  /// will notify this [Drag drag] of any updates.
   Drag onStart(Offset position) {
 //  print("InteractionConsumer.onStart");
 
@@ -38,7 +40,7 @@ class InteractionConsumer {
   }
 
   void update(DragUpdateDetails details, Drag drag) {
-//    print("InteractionConsumer.update");
+    print("InteractionConsumer.update");
       InteractionHistory finger = findInteractionHistoryFromDrag(drag);
       finger.addPosition(details.localPosition);
       notifyUpdate();
@@ -53,7 +55,7 @@ class InteractionConsumer {
   }
 
   void end(DragEndDetails details, Drag drag) {
-//    print("end");
+    print("end");
     InteractionHistory history = findInteractionHistoryFromDrag(drag);
     _fingers.remove(history);
 //    print(_fingers.length);
@@ -61,7 +63,7 @@ class InteractionConsumer {
   }
 
   void notifyUpdate() {
-    debugMemUsage();
+//    debugMemUsage();
     _onUpdate();
   }
 

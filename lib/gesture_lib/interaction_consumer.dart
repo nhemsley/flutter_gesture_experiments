@@ -40,14 +40,14 @@ class InteractionConsumer {
   }
 
   void update(DragUpdateDetails details, Drag drag) {
-    print("InteractionConsumer.update");
+//    print("InteractionConsumer.update");
       InteractionHistory finger = findInteractionHistoryFromDrag(drag);
       finger.addPosition(details.localPosition);
       notifyUpdate();
   }
 
   void cancel(Drag drag) {
-    print("cancel");
+//    print("cancel");
     InteractionHistory history = findInteractionHistoryFromDrag(drag);
     _fingers.remove(history);
 //    print(_fingers.length);
@@ -55,7 +55,7 @@ class InteractionConsumer {
   }
 
   void end(DragEndDetails details, Drag drag) {
-    print("end");
+//    print("end");
     InteractionHistory history = findInteractionHistoryFromDrag(drag);
     _fingers.remove(history);
 //    print(_fingers.length);
